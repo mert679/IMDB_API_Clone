@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/srv/app
+    ports:
+      - "0.0.0.0:7000:7000"
+    command: python manage.py runserver 0.0.0.0:7000
+
+volumes:
+  # js ve css kodlarını save edilmesini sağlıyor
+  static-data:
