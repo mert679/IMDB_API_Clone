@@ -9,7 +9,7 @@ services:
       - .:/srv/app
     ports:
       - "0.0.0.0:7000:7000"
-    command: python manage.py runserver 0.0.0.0:7000
+    command: gunicorn imdb_clone_core.wsgi:application --bind  0.0.0.0:7000
 
 volumes:
   # js ve css kodlarını save edilmesini sağlıyor
